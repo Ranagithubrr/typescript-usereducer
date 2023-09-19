@@ -1,19 +1,20 @@
 import { useEffect, useReducer } from 'react';
 import { INITIAL_STATE, postReducer } from '../../reducers/product_reducer';
 import Product from '../Product/Product';
+import { ActionType } from '../../types/product_types';
 
 function Products() {
 
   const [state, dispatch] = useReducer(postReducer, INITIAL_STATE);
 
   const fetchData = () => {
-    dispatch({ type: "START" });
+    dispatch({ type: ActionType.START });
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => {
-        dispatch({ type: "SUCCESS", payload: data });
+        dispatch({ type: ActionType.SUCCESS , payload: data });
       })
-      .catch((err) => dispatch({ type: "FAILED" }));
+      .catch((err) => dispatch({ type: ActionType.FAILED }));
   };
 
   useEffect(() => {
