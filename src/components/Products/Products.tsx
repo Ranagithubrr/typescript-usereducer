@@ -22,11 +22,9 @@ function Products() {
 
 
   return (
-    <div>
-      <h2 className='font-bold text-gray-800 text-xl text-center py-5'>Simple Ecommerce Product</h2>
-      <h2 className='font-semibold text-gray-800 text-md text-center'>with TypeScript and useReducer</h2>
+    <div>      
       {
-        state.loading && <div className='w-screen h-5/6 flex items-center justify-center'>
+        state.loading && <div className='w-screen h-screen flex items-center justify-center'>
           <span>Loading . . . .</span>
         </div>
       }
